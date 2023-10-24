@@ -1,0 +1,70 @@
+
+<head>
+  <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.132.2/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.132.2/examples/jsm/"
+    }
+  }
+</script>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/VR/VR.css">
+</head>
+
+<body>
+  <div class="bg"></div>
+    <div class="game-interface">
+      <!--<button id="exit-btn" class="btn" >Exit</button>-->
+    </div>
+  <div class="VR-Controls">
+    <nav>
+      
+      <ul>
+        <li><button id="gyro-button"> <i class="bi bi-compass"></i>
+          <div id="cross" class="crossed">
+            
+          </div>
+          </button>
+        </li>
+      </ul>
+
+    
+    </nav>
+    <div class="menu-btn">
+        <i class="bi bi-list"></i>
+    </div>
+    <div class="side-bar">
+      <div class="close-btn">
+        <i class="bi bi-x-lg"></i>
+      </div>
+      <div class="menu">
+        <div class="item">
+          <a class="sub-btn"> Change Scene <i class="bi bi-caret-down-fill"></i>
+          </a>
+          <div class="sub-menu">
+            <a href="#" class="sub-item">Mt Samat</a>
+            <a href="#" class="sub-item">Las Casas 1</a>
+            <a href="#" class="sub-item">Las Casas 2</a>
+            <a href="#" class="sub-item">Las Casas 3</a>
+          </div>
+        </div>
+        <div id="exit-btn" class="item"><a> Exit Game</a></div>
+
+
+      </div>
+    </div>
+    
+  </div>
+    
+    <div id="image-container">
+      <div id="enter-vr">
+        
+      </div>
+  </div>
+</body>
+<script src="../game.js" type="module"></script>
+ 
+

@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&e&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border:none;
+    outline: none;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+:root {
+    --bg-color: #2a3950;
+    --main-bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --btn-color: #0ef;
+    --btn-green-color: #39ff14;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: #799bad;
+    background-size: 300% 300%;
+    
+}
+@keyframes color{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    animation: fade-down 0.5s;
+}
+section {
+    height: 200px;
+    padding: 50px;
+    
+}
+.bg{
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+}
+.bg :nth-child(1){
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+}
+
+.bg :nth-child(2){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+}
+
+#popup-no-joined {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+#popup-no-joined i{
+  font-size: 50px;
+}
+#popup-no-joined p{
+  font-size: 20px;
+}
+#popup-no-joined .button-container{
+  margin: 50px;
+}
+#popup-no-joined .button-container button{
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.generate-code .content{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px; 
+    padding-right: 50px; 
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 40px;
+    margin-bottom: 50px;
+
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    border-radius: 3rem;
+    background-color: white;
+    font-size: 1.3rem;
+    letter-spacing: .1rem;
+    font-weight: 700;
+    border: 2px solid white;
+    z-index: 1;
+    color: black;
+    transition: .5s;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn.start{
+    width: 400px;
+    padding: 1rem 2.8rem;
+    border-radius: 1rem;
+    background-color: var(--btn-green-color);
+    box-shadow: 0 0 1rem var(--btn-green-color);
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    border: 2px solid white;
+    z-index: 1;
+    color: black;
+    transition: .5s;
+    cursor: pointer;
+}
+.btn:disabled{
+    background-color: gray;
+}
+
+.btn:hover{
+    box-shadow: none;
+}
+.generate-code .content input{
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    border: 2px solid black;
+    border-radius: 40px;
+    outline: none;
+    margin: .7rem 0;
+    background: transparent;
+    background-blur: 20px;
+    color: black;
+    font-weight: bold;
+}
+.input-box{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.input-box label{
+    position: absolute;
+    font-size: .8em;
+    top: 0px;
+    left: 17px;
+    transform: translateY(-50%);
+    color: black;
+    pointer-events: none;
+    transition: .5s;
+
+}
+.my-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 70vh;
+ 
+}
+.my-tabs input[type="radio"]{
+  display: none;
+}
+.my-tabs label{
+  padding: 25px;
+  background: #e2e2e2;
+  font-weight: bold;
+  
+
+}
+.my-tabs .tab{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  background: #ffffff;
+  order: 1;
+  display: none;
+  border-radius: 2px;
+  overflow: auto;
+}
+
+.my-tabs input[type="radio"]:checked + label + .tab{
+  display: block;
+}
+
+.my-tabs input[type="radio"]:checked + label{
+  background: #ffffff;
+}
+.my-tabs .tab {
+  width: 100%;
+  height: 100%;
+}
+.start-game-container{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+#tab-request-label{
+  position: relative;
+  
+}
+#tab-request-label #notification{
+  display: none;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  background: red;
+  text-align: center;
+}
+.accept-btn{
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-size: 20px;
+  background: green;
+  color: white;
+}
+.reject-btn{
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-size: 20px;
+  background: red;
+  color: white;
+}
+#students-joined{
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    align-items: center;
+
+}
+#students-joined .student div{
+    font-size: 20px;
+}
+#students-joined .student i{
+
+    font-size: 50px;
+}
+#students-joined .student{
+    width: 80%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: black;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+#students-request{
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    align-items: center;
+
+}
+#students-request .student div{
+    font-size: 20px;
+}
+#students-request .student i{
+
+    font-size: 50px;
+}
+#students-request .student{
+    width: 80%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: black;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+@keyframes fade-down {
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: white;
+    border-radius: 10px;
+}
+
+.btn.back{
+    
+    background-color: transparent;
+    box-shadow: none;
+    font-size: 1.6rem;
+    padding: 1rem 2.8rem;
+    margin-top: 20px;
+    color: white;
+}
+
+.btn.back:hover
+{
+    background-color: red;
+}
+
+@media (orientation: portrait) {
+    
+    body{
+        overflow: hidden;
+        
+    }
+    section {
+        height: 200px;
+    }
+    .container{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        animation: fade-down 0.5s;
+        width: 100%;
+        height: 100%;
+        margin: 20px;
+    }
+    .generate-code {
+        display: flex;
+
+    }
+    .btn.start{
+        width: 100%;
+        height: 100px;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        background-color: var(--btn-green-color);
+        box-shadow: 0 0 1rem var(--btn-green-color);
+        font-size: 1.3rem;
+        letter-spacing: .1rem;
+        font-weight: 600;
+        border: 2px solid white;
+        z-index: 1;
+        color: black;
+        transition: .5s;
+        cursor: pointer;
+        margin-left: 20px;
+
+    }
+    .btn.back{
+    
+        background-color: transparent;
+        box-shadow: none;
+        font-size: 1rem;
+        padding: 1rem 2rem;
+        margin-top: 20px;
+        color: white;
+    }
+    .btn.back:hover
+    {
+        background-color: gray;
+    }
+    .generate-code .content{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        padding-left: 50px; 
+        padding-right: 50px; 
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border: 1px solid #ffffff;
+        border-radius: 10px;
+        box-shadow: 10px 10px 40px;
+
+        height: 100%;
+    
+    }
+    .start-game-container{
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .players-joined{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 40%;
+    }
+
+    #students-joined .student div{
+        font-size: 1em;
+    }
+    #students-joined .student i{
+    
+        font-size: 2em;
+    }
+    #students-request .student div{
+      font-size: 0.8em;
+    }
+    #students-request .student i{
+      font-size: 2em;
+    }
+    .btn {
+        display: inline-block;
+        padding: 0.5rem 0.5rem;
+        border-radius: 3rem;
+        background-color: white;
+        font-size: 1rem;
+        letter-spacing: .1rem;
+        font-weight: 700;
+        border: 2px solid white;
+        z-index: 1;
+        color: black;
+        transition: .5s;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+    .btn:disabled{
+        background-color: gray;
+    }
+
+    .btn:hover{
+        box-shadow: none;
+    }
+    .generate-code .content input{
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 1.2rem;
+        border: 2px solid white;
+        border-radius: 40px;
+        outline: none;
+        margin: .7rem 0;
+        background: transparent;
+        color: black;
+        font-weight: bold;
+    }
+    .my-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 70vh;
+
+    }
+    .my-tabs .tab{
+        position: relative;
+        width: 100%;
+        background: #ffffff;
+        order: 1;
+        display: none;
+        border-radius: 2px;
+    }
+    
+    .my-tabs label{
+        padding: calc(1px + 2vw);
+        background: #e2e2e2;
+        font-weight: bold;
+    }
+    .accept-btn{
+        width: 2em;
+        height: 2em;
+        border: 2px solid black;
+        border-radius: 20px;
+        font-size: 20px;
+        background: green;
+        color: white;
+    }
+    .reject-btn{
+        width: 2em;
+        height: 2em;
+        border: 2px solid black;
+        border-radius: 20px;
+        font-size: 20px;
+        background: red;
+        color: white;
+    }
+    
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/teacherPage.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        
+    </head>
+    <body>
+        <button id="back" class="btn back">Back</button>
+        <div class="bg">
+          <img src="/Images/virtual-reality.png" />
+          <img src="/Images/vr1.png" />
+          
+          
+        </div>
+      <div id="popup-no-joined">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+          <p>
+            No students have joined. Do you want to continue?
+        </p>
+        <div class="button-container">
+          <button id="yes-button"> Yes </button>
+          <button id="no-button"> No </button>
+        </div>
+      </div>
+        <div class="container">
+          <section class="players-joined">
+            <!--  
+                <div class="content">
+                    <div id="students-joined">
+                        
+                    </div>
+                </div>
+              <div class="content">
+                    <div id="students-request">
+                        
+                    </div>
+                </div>
+            -->
+            <div class="my-tabs">
+              <input type="radio" id="tab-joined" name="myTabs" checked="checked">
+              <label for="tab-joined">Players Joined</label>
+              <div class="tab">
+                  
+                <div class="content">
+                    <div id="students-joined">
+                        
+                      
+                      
+                    </div>
+                </div>
+                
+              </div>
+              
+              <input type="radio" id="tab-request" name="myTabs" checked="checked">
+              <label id="tab-request-label" for="tab-request">Players Request <div id="notification">1</div></label>
+              
+              <div class="tab">
+                
+                <div class="content">
+                    <div id="students-request">
+                        
+                      
+                      
+                    </div>
+                </div>
+              </div>
+              
+            </div>
+            </section>
+            <section class="generate-code">
+                <div class="content">
+                    <div class="input-box">
+                        <input id="code-text" type="text" disabled/>
+                        <label>Room ID</label>
+                    </div>
+                    
+                    <button id="generate-code" class="btn">Generate Code</button>
+                    <button id="start-game" class="btn">Start Game</button>
+                    
+                </div>
+                <div class="start-game-container">
+                    
+                </div>
+    
+            </section>
+        </div>
+      
+    </body>
+    <script src="/teacher.js" type="module"></script>
+  
+  
+
+</html>
