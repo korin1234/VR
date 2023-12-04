@@ -1,0 +1,121 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&e&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border:none;
+    outline: none;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+:root {
+    --bg-color: #2a3950;
+    --main-bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --btn-color: #0ef;
+}
+
+body{
+    overflow: hidden;
+}
+/*
+.bg{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(45deg, #355C7d, #725a7a, #c56c86, #ff7582);
+    background-size: 300% 300%;
+    animation: color 12s ease-in-out infinite;
+}
+*/
+
+
+.link {
+    border: 1px black solid;
+    padding: 25px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.teacher img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+
+}
+
+.student img
+{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20%;
+}
+
+
+
+.container {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+    display: flex;
+}
+
+section{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    
+}
+section h1{
+    background:rgba(0,0,0,0.6);
+    color:white;
+    padding: 12px 32px;
+}
+
+.teacher{
+
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: #799bad;
+}
+
+.student{ 
+
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: #6f656d
+}
+
+#middle-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  width: 20%;
+  transform: translate(-50%, -50%);
+}
+
+@media (orientation: portrait) {
+    .container {
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+      display: flex;
+      flex-direction: column;
+  }
+}

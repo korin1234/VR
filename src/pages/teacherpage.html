@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/teacherPage.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        
+    </head>
+    <body>
+      <div class="profile">
+        <div class="profile-dropdown">
+          <a href="#" class="dropdown"><i class="bi bi-person-fill"></i></a>
+          <ul>
+            <li id="account-settings">Account Settings</li>
+            <li id="logout">Logout</li>
+          </ul>
+        </div>
+      </div>
+        <div class="bg">
+          <img src="/Images/virtual-reality.png" />
+          <img src="/Images/vr1.png" />
+          
+          
+        </div>
+      <div id="popup-no-joined">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+          <p>
+            No students have joined. Do you want to continue?
+        </p>
+        <div class="button-container">
+          <button id="yes-button"> Yes </button>
+          <button id="no-button"> No </button>
+        </div>
+      </div>
+        <div class="container">
+          <section class="players-joined">
+            <!--  
+                <div class="content">
+                    <div id="students-joined">
+                        
+                    </div>
+                </div>
+              <div class="content">
+                    <div id="students-request">
+                        
+                    </div>
+                </div>
+            -->
+            <div class="my-tabs">
+              <input type="radio" id="tab-joined" name="myTabs" checked="checked">
+              <label for="tab-joined">Players Joined</label>
+              <div class="tab">
+                  
+                <div class="content">
+                    <div id="students-joined">
+                        
+                      
+                      
+                    </div>
+                </div>
+                
+              </div>
+              
+              <input type="radio" id="tab-request" name="myTabs" checked="checked">
+              <label id="tab-request-label" for="tab-request">Players Request <div id="notification">1</div></label>
+              
+              <div class="tab">
+                
+                <div class="content">
+                    <div id="students-request">
+                        
+                      
+                      
+                    </div>
+                </div>
+              </div>
+              
+            </div>
+            </section>
+            <div class="right-side-container">
+              <section class="generate-code">
+                <div class="content">
+                    <div class="input-box">
+                        <input id="code-text" type="text" disabled/>
+                        <label>Room ID</label>
+                    </div>
+                    
+                    <button id="generate-code" class="btn">Generate Code</button>
+                    <button id="start-game" class="btn">Start Game</button>
+                    
+                </div>
+                <div class="start-game-container">
+                    
+                </div>
+                
+            </section>
+          <section class="upload-image">
+                
+                  <div class="input-box">
+                    <form id="file-upload-form">
+                      <input type="file" accept="Images/*" class="file-input" id="files" hidden />
+                      
+                    </form>
+                    <button class="upload-btn">
+                      Upload 360 Image
+                    </button>
+                    <div class="check-container">
+                      <div>
+                        <input type="checkbox" name="default-check" id="default-check" checked>
+                        <span> Add Default Scenes</span>
+                      </div>
+                      <div>
+                        <a href="#" class="images-dropdown dropdown">Recently-Added</a>
+
+                        <ul id="recently-added">
+                        
+                        </ul>
+                      </div>
+                      
+                      
+                    </div>
+                    
+                  </div> 
+                <div class="progress-area">
+                
+                </div>
+                <div class="uploaded-area" id="uploaded-container">
+                            
+                </div>
+                
+            </section>
+              
+            
+          </div>
+            
+        </div>
+      <div class="popup-file-error">
+            <h2>Upload Failed</h2>
+            
+            <span class="info">Image size doesnt match!</span>
+            <span class="info">Please try to upload an image size minimum of 3000x1000</span>
+            <br />
+            <button class="ok-btn"> Ok </button>
+      </div>
+      <div class="popup-change-room">
+        <h2>Change Room</h2>
+        
+        <span class="info">Do you want to change the room?</span>
+        <span class="info">Other players will have to join again!</span>
+        <br />
+        <div class="btn-container">
+          <button class="change-room-yes-btn"> Yes </button>
+          <button class="change-room-no-btn"> No </button>
+          
+        </div>
+      </div>
+      <div class="popup-bg-cover">
+        
+      </div>
+      
+      
+    </body>
+    <script src="/teacher.js" type="module"></script>
+  
+  
+
+</html>
