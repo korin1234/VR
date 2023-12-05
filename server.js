@@ -13,8 +13,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 const teacherCredentials = {
-  username: "admin",
-  password: "123"
+  username: "user",
+  password: "12345"
 }
 
 let isLoggedIn = false;
