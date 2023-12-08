@@ -14,7 +14,7 @@ const session = require('express-session');
 
 const teacherCredentials = {
   username: "user",
-  password: "123abc"
+  password: "abc123"
 }
 
 let isLoggedIn = false;
