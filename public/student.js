@@ -134,7 +134,7 @@ socket.on('name-exist', () => {
     joinRoomContainer.classList.remove('active');
     validationContainer.style.display = 'flex';
     studentName.classList.add('invalid');
-    validationText.innerHTML = 'Name already exists!';
+    validationText.innerHTML = 'That name already exists!';
   
     
 })
@@ -145,7 +145,7 @@ socket.on('join-new-room', (playerDetails) => {
 })
 
 socket.on('game-started', () => {
-    SetPopUpText('Game Already Started', 'Sorry the game has started already!', 'Please join another room', 'red', true, false, PopUpOkCBDefault);
+    SetPopUpText('Class Already Started', 'Sorry the class has started!', 'Please try again later.', 'red', true, false, PopUpOkCBDefault);
     
     
 })
@@ -173,7 +173,7 @@ socket.on('exit-game', () => {
   const reset = () => {
     window.location.reload();
   }
-  SetPopUpText('Join Failed' ,'Teacher has left the room', 'Please try joining another room', 'red', true, false, reset);
+  SetPopUpText('Join Failed' ,'Teacher has left the room.', 'Please try again.', 'red', true, false, reset);
     
     console.log("exit");
 
@@ -186,7 +186,7 @@ socket.on('student-accepted', (el) => {
   socket.emit('student-join-room',el);
 })
 socket.on('student-declined', (el) => {
-  SetPopUpText('Join Failed' ,'Teacher has declined the request', 'Please try joining again', 'red', true, false, PopUpOkCBDefault);
+  SetPopUpText('Join Failed' ,'Teacher has declined your request', 'Please try again', 'red', true, false, PopUpOkCBDefault);
   
   
 })
@@ -212,7 +212,7 @@ function StudentAccepted()
   playersJoinedContainer.style.display = 'flex';
   bg.style.display = "none";
 
-  SetResponse({ message: 'Joined.. Waiting for other players to join' });
+  SetResponse({ message: 'Joined.. Waiting for other students to join' });
 }
 function SetResponse({containerDisplay = 'flex', loaderDisplay = 'flex', color ='ghostwhite', message = '', isInvalid = false})
 {

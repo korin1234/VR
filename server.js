@@ -127,14 +127,14 @@ app.post('/forgot-password', (req, res) => {
     from: process.env.ADMIN_EMAIL,
     to: process.env.USER_EMAIL,
     subject: 'Reset Password Link',
-    text: `Here is the link to reset the password ${link}`
+    text: `If this was you, please click the link to change your password. ${link}`
     };
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
-          res.json({status: "error", message: "Coudnt send email due to some error"})
+          res.json({status: "error", message: "Coudn't send email due to some error"})
 
     } else {
-          res.json({status: "success", message: "Email Sent Successfully"})
+          res.json({status: "success", message: "Check your email for a link to reset your password."})
     }
   });
 })
