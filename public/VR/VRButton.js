@@ -24,14 +24,14 @@ class VRButton {
 
 				currentSession.removeEventListener( 'end', onSessionEnded );
 
-				buttonLink.textContent = 'Enter VR Mode';
+				buttonLink.textContent = 'Back To VR';
 
 				currentSession = null;
 
 			}
 
 			//
-			buttonLink.textContent = 'Enter VR Mode';
+			buttonLink.textContent = 'Back To VR';
     
 			
 

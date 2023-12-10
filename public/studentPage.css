@@ -37,6 +37,20 @@ body{
         background-position: 0 50%;
     }
 }
+
+.popup-cover-bg{
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  height: 100%;
+  width: 100%;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .center {
     position: absolute;
     top:50%;
@@ -159,6 +173,8 @@ body{
     direction: column;
     align-items: center;
     margin: 20px;
+    background-color: rgba(144, 255, 149, 0.5);
+    border-radius: 10px;
     
 }
 
@@ -304,6 +320,7 @@ body{
     opacity: 0;
     pointer-events: none;
     transition: .3s ease;
+  z-index: 10;
 }
 
 .popup-info.active{
@@ -380,6 +397,7 @@ body{
     display: none;
     align-items: center;
     justify-content: center;
+    
 
 }
 .validation-container i{
@@ -536,6 +554,7 @@ body{
     
     }
     
+    }
     .center .btn.back{
         align-self: flex-start;
         background-color: transparent;
@@ -565,4 +584,3 @@ body{
     .lobby-container .btn.back:hover{
         background-color: gray;
     }
-}

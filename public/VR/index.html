@@ -41,17 +41,28 @@
         <i class="bi bi-x-lg"></i>
       </div>
       <div class="menu">
-        <div class="item">
+        <div class="item" id="default-scenes">
           <a class="sub-btn"> Change Scene <i class="bi bi-caret-down-fill"></i>
           </a>
           <div class="sub-menu">
-            <a href="#" class="sub-item">Mount Samat</a>
+            <a href="#" class="sub-item">Mt Samat</a>
             <a href="#" class="sub-item">Las Casas 1</a>
             <a href="#" class="sub-item">Las Casas 2</a>
             <a href="#" class="sub-item">Las Casas 3</a>
           </div>
         </div>
-        <div id="exit-btn" class="item"><a> Exit</a></div>
+
+        <div id="upload-item-container" class="menu">
+          <div class="item"> 
+            <a class="sub-btn"> Your added Scenes <i class="bi bi-caret-down-fill"></i>
+            </a>
+            <div class="sub-menu">
+
+            </div>
+          </div>
+          
+        </div>
+        <div id="exit-btn" class="item"><a> Exit Game</a></div>
 
 
       </div>
@@ -64,6 +75,26 @@
         
       </div>
   </div>
+  <div id="popup-exit" class="popup">
+    <i class="bi bi-exclamation-triangle-fill"></i>
+    <p>
+        Do you really want to exit?
+    </p>
+    <div class="button-container">
+      <button id="exit-yes-btn"> Yes </button>
+      <button id="exit-no-btn"> No </button>
+    </div>
+</div>
+<div id="popup-refresh" class="popup">
+    <i class="bi bi-exclamation-triangle-fill"></i>
+    <p>
+        Do you really want to refresh the page?
+    </p>
+    <div class="button-container">
+      <button id="refresh-yes-btn"> Yes </button>
+      <button id="refresh-no-btn"> No </button>
+    </div>
+</div>
 </body>
 <script src="../game.js" type="module"></script>
  

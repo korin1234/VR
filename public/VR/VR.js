@@ -17,6 +17,7 @@ class VR
         this.orientControlActive = true;
       
         this.allScenes = [];
+        this.tempScenes = [];
     }
 
     Init()
@@ -116,7 +117,11 @@ class VR
         this.currentScene = this.allScenes[sceneNum];
 
     }
-    
+    ChangeTempScene(sceneNum)
+    {
+        this.currentScene = this.tempScenes[sceneNum];
+
+    }
     SetVRScenes()
     {
       const sprites = ['/Images/mt-samat.jpeg', '/Images/LasCasas1.jpg', '/Images/LasCasas2.jpeg', '/Images/LasCasas3.jpeg']
@@ -153,6 +158,45 @@ class VR
       }
       
     }
+
+    SetTempVRScenes(tempArr)
+    {
+
+      for(let i = 0; i < tempArr.length; i++)
+      {
+          
+          const scene = new THREE.Scene();
+      
+
+          // Load the panorama image
+          const loader = new THREE.TextureLoader();
+          const texture = loader.load(tempArr[i].url);
+          
+          // Set the texture wrapping and flipping options
+          texture.wrapS = THREE.RepeatWrapping;
+          texture.repeat.x = -1;
+
+          // Create a new sphere geometry to hold the panorama image
+          const geometry = new THREE.SphereGeometry(500, 60, 40);
+
+          // Flip the geometry inside out so that the image is displayed on the inside of the sphere
+          geometry.scale(-1, 1, 1);
+
+          // Create a new material with the loaded texture
+          const material = new THREE.MeshBasicMaterial({
+            map: texture
+          });
+
+          // Create a new mesh with the geometry and material
+          const mesh = new THREE.Mesh(geometry, material);
+            // Add the mesh to the scene
+          scene.add(mesh);
+        
+          this.tempScenes.push(scene)
+      }
+      
+    }
+
     OnWindowResize() {
 
 				this.camera.aspect = window.innerWidth / window.innerHeight;

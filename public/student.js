@@ -15,6 +15,8 @@ const popUpCloseBtn = document.querySelector('.close-btn');
 const popUpOkBtn = document.querySelector('.ok-btn');
 const validationText = document.querySelector('#validation-text');
 const validationContainer = document.querySelector('.validation-container');
+const bg = document.querySelector('.popup-cover-bg');
+
 const backBtn = document.getElementsByClassName('back');
 let roomInputValue = '';
 let joined = false;
@@ -112,10 +114,10 @@ popUpCloseBtn.addEventListener('click', (e) =>{
     joinRoomContainer.classList.remove('active');
 })
 
-popUpOkBtn.addEventListener('click', (e) =>{
-    popUpContainer.classList.remove('active');
-    joinRoomContainer.classList.remove('active');
-})
+//popUpOkBtn.addEventListener('click', (e) =>{
+    //popUpContainer.classList.remove('active');
+    //joinRoomContainer.classList.remove('active');
+//})
 
 //Socket Events
 socket.on('start', () => {
@@ -128,8 +130,9 @@ socket.on('start', () => {
 })
 
 socket.on('name-exist', () => {
-     validationContainer.style.display = 'flex';
-  
+    popUpContainer.classList.remove('active');
+    joinRoomContainer.classList.remove('active');
+    validationContainer.style.display = 'flex';
     studentName.classList.add('invalid');
     validationText.innerHTML = 'Name already exists!';
   
@@ -142,7 +145,7 @@ socket.on('join-new-room', (playerDetails) => {
 })
 
 socket.on('game-started', () => {
-    SetPopUpText('Game Already Started', 'Sorry the game has started already!', 'Please join another room', 'red', true, false);
+    SetPopUpText('Game Already Started', 'Sorry the game has started already!', 'Please join another room', 'red', true, false, PopUpOkCBDefault);
     
     
 })
@@ -162,15 +165,17 @@ socket.on('refresh-players', message => {
 })
 
 socket.on('exit-game', () => {
-    SetResponse({
+  SetResponse({
         loaderDisplay: 'none',
         color: 'red',
         message: 'Teacher has left the room!',
     });
-    setTimeout(() => {
-        window.location.reload();
-    }, 2000)
+  const reset = () => {
+    window.location.reload();
+  }
+  SetPopUpText('Join Failed' ,'Teacher has left the room', 'Please try joining another room', 'red', true, false, reset);
     
+    console.log("exit");
 
 });
 
@@ -181,7 +186,7 @@ socket.on('student-accepted', (el) => {
   socket.emit('student-join-room',el);
 })
 socket.on('student-declined', (el) => {
-  SetPopUpText('Join Failed' ,'Teacher has declined the request', 'Please try joining again', 'red', true, false);
+  SetPopUpText('Join Failed' ,'Teacher has declined the request', 'Please try joining again', 'red', true, false, PopUpOkCBDefault);
   
   
 })
@@ -191,7 +196,7 @@ function ResponseFromServer(isJoined, message)
     joined = isJoined;
     if(isJoined)
     {
-            SetPopUpText('Request Sent','Join Request Sent!', 'Please wait', 'green', true, true);
+            SetPopUpText('Request Sent','Join Request Sent!', 'Please wait', 'green', true, true, PopUpOkCBDefault);
     }
     else
     {
@@ -205,10 +210,11 @@ function StudentAccepted()
 {
   joinRoomContainer.style.display = 'none';
   playersJoinedContainer.style.display = 'flex';
+  bg.style.display = "none";
 
   SetResponse({ message: 'Joined.. Waiting for other players to join' });
 }
-function SetResponse({containerDisplay = 'flex', loaderDisplay = 'flex', color ='green', message = '', isInvalid = false})
+function SetResponse({containerDisplay = 'flex', loaderDisplay = 'flex', color ='ghostwhite', message = '', isInvalid = false})
 {
     response.style.display = containerDisplay;
     response.firstElementChild.style.display = loaderDisplay;
@@ -225,11 +231,12 @@ function SetResponse({containerDisplay = 'flex', loaderDisplay = 'flex', color =
     
 }
 
-function SetPopUpText(popUpMainTitle = 'Error', popUpMessage1 = 'error', popUpMessage2 = 'error', popUpColor = 'red', disableClose = false, disableOk = false)
+function SetPopUpText(popUpMainTitle = 'Error', popUpMessage1 = 'error', popUpMessage2 = 'error', popUpColor = 'red', disableClose = false, disableOk = false, cb)
 {
   popUpCloseBtn.style.display = disableClose == true ? 'none' : 'block';
   popUpOkBtn.style.display = disableOk == true ? 'none' : 'block';
   const title = popUpContainer.getElementsByTagName("h2");
+  bg.style.display = "block";
   title[0].innerText = popUpMainTitle;
   title[0].style.background = popUpColor;
   const spans = popUpContainer.getElementsByTagName("span");
@@ -238,6 +245,7 @@ function SetPopUpText(popUpMainTitle = 'Error', popUpMessage1 = 'error', popUpMe
   popUpContainer.classList.add('active');
   joinRoomContainer.classList.add('active');
   
+  popUpOkBtn.addEventListener("click", cb, {once: true})
   
 }
 
@@ -260,4 +268,11 @@ function DisplayLobby(message)
 function DeleteArray()
 {
     document.getElementById('player-list').innerHTML = "";
+}
+
+function PopUpOkCBDefault()
+{
+  bg.style.display = "none";
+  popUpContainer.classList.remove('active');
+  joinRoomContainer.classList.remove('active');
 }
